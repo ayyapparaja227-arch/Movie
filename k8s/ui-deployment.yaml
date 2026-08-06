@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trendpredict-ui
+  namespace: trendpredict
+  labels:
+    app: trendpredict-ui
+    tier: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: trendpredict-ui
+  template:
+    metadata:
+      labels:
+        app: trendpredict-ui
+    spec:
+      containers:
+      - name: ui
+        image: gcr.io/hackathon-project/trendpredict-ui:v1.0.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+          name: http
+        resources:
+          limits:
+            cpu: "500m"
+            memory: 512Mi
+          requests:
+            cpu: "100m"
+            memory: 128Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: false
+          runAsNonRoot: true
+          runAsUser: 101  # default nginx unprivileged user id

@@ -1,0 +1,8 @@
+{
+  "version": "job_1786025632",
+  "model_sha256": "7453f5dcfd4df54a47c8a74db764cacab514c20fab18f8f47ca9b181697979bb",
+  "training_data_sha256": "a47a9e48b1ede8ed0f2e13886393d38644ea9283cf77155baf53c82d162b128d",
+  "random_seed": 42,
+  "timestamp": "2026-08-06T14:13:56.030365",
+  "chain_hash": "0a7ac0fccd7e5bb98efab00565da65512eab3159af2da5d9c63324fb78d01089"
+}

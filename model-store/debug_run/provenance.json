@@ -1,0 +1,8 @@
+{
+  "version": "debug_run",
+  "model_sha256": "46b5066fa72e90584c742db09588298c1dc28adaa51349b1711e7e6482fa2e0a",
+  "training_data_sha256": "a47a9e48b1ede8ed0f2e13886393d38644ea9283cf77155baf53c82d162b128d",
+  "random_seed": 42,
+  "timestamp": "2026-08-06T13:31:32.315466",
+  "chain_hash": "6acc7b0c8e7e204768eb6b4bd946c296982bd82b87dd8c23de6ee85935ca7062"
+}

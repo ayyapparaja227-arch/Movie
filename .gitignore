@@ -1,0 +1,12 @@
+.venv/
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+catboost_info/
+data/temp/
+.ipynb_checkpoints/
+*.log
+model-store/registry.db-journal

@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trendpredict-api
+  namespace: trendpredict
+  labels:
+    app: trendpredict-api
+    tier: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: trendpredict-api
+  template:
+    metadata:
+      labels:
+        app: trendpredict-api
+    spec:
+      containers:
+      - name: api
+        image: gcr.io/hackathon-project/trendpredict-api:v1.0.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+          name: http
+        env:
+        - name: PYTHONPATH
+          value: "/app"
+        - name: MODEL_REGISTRY_PATH
+          value: "/app/model-store/registry.db"
+        resources:
+          limits:
+            cpu: "2"
+            memory: 2Gi
+          requests:
+            cpu: "500m"
+            memory: 512Mi
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: false
+          runAsNonRoot: true
+          runAsUser: 1000
